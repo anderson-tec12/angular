@@ -1,1 +1,10 @@
 Instale a extenção Angular Extension Pack
+
+CLI - Instalação 
+  npm i -g @angular/cli
+
+CLI - Verificar versão
+  ng version
+
+CLI - Criando um projeto 
+ng new nomeDoApp
