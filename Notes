@@ -19,5 +19,12 @@ Incons
   https://www.npmjs.com/package/@fortawesome/angular-fontawesome
   npm install @fortawesome/angular-fontawesome@0.13.x
 
-Seviços
+Serviços
 https://openweathermap.org/
+
+
+Observables
+Passando assinatura para fazer a desassinatura
+ .pipe(
+        takeUntil(this.destroy$)
+)
