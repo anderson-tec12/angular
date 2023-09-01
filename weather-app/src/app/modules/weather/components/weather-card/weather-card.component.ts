@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { faTemperatureLow } from '@fortawesome/free-solid-svg-icons';
 import { WeatherDatas } from 'src/app/model/interfaces/weatherInterface';
 
 @Component({
@@ -8,6 +9,8 @@ import { WeatherDatas } from 'src/app/model/interfaces/weatherInterface';
 })
 export class WeatherCardComponent implements OnInit{
   @Input() weatherDatas!: WeatherDatas
+
+  minTemperatureIcon = faTemperatureLow
 
   ngOnInit(): void {
     console.log(`Dados vindo elemento pai - `, this.weatherDatas)
