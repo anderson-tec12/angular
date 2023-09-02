@@ -20,11 +20,14 @@ Incons
   npm install @fortawesome/angular-fontawesome@0.13.x
 
 Serviços
-https://openweathermap.org/
+  https://openweathermap.org/
 
 
 Observables
 Passando assinatura para fazer a desassinatura
- .pipe(
-        takeUntil(this.destroy$)
-)
+  .pipe(
+          takeUntil(this.destroy$)
+  )
+
+Templates de componentes
+  https://primeng.org/installation
