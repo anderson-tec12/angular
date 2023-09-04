@@ -1,9 +1,18 @@
 .grid{
   background-image: url('../../../assets/sean-pollock-PhYq704ffdA-unsplash.jpg') !important;
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
+  // width: 100vw;
+
+  span{
+    cursor: pointer;
+  }
+
+  .col-12{
+    margin-top: 10vh;
+  }
 }
 
 
