@@ -36,7 +36,7 @@
       </form>
 
        <!-- SIGNUP -->
-       <form>
+       <form [formGroup]="signupForm" (ngSubmit)="onSubmitSignupForm()">
         <p-card
           styleClass="mt-10"
           header="Criar conta"
@@ -47,23 +47,23 @@
           <div
             class="flex justify-content-center align-content-center text-align-center"
           >
-            <input type="text" pInputText placeholder="Nome">
+            <input formControlName="name" type="text" pInputText placeholder="Nome">
           </div>
 
           <div
             class="flex justify-content-center align-content-center text-align-center mt-3"
           >
-            <input type="email" pInputText placeholder="Email">
+            <input formControlName="email"  type="email" pInputText placeholder="Email">
           </div>
 
           <div
             class="flex justify-content-center align-content-center text-align-center mt-3"
           >
-            <input type="password" pInputText placeholder="Senha">
+            <input formControlName="password"  type="password" pInputText placeholder="Senha">
           </div>
 
           <div class="card flex justify-content-center mt-3">
-            <button type="submit" pButton pRipple label="Criar conta"></button>
+            <button type="submit" pButton pRipple label="Criar conta" [disabled]="!this.signupForm.valid"></button>
           </div>
 
           <span
