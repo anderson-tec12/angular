@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
+import {CookieService}  from 'ngx-cookie-service'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {CardModule} from 'primeng/card'
@@ -30,9 +31,11 @@ import { HomeComponent } from './modules/home/home.component';
     CardModule,
     InputTextModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+
+
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
