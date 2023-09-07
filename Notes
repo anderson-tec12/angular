@@ -31,3 +31,15 @@ Passando assinatura para fazer a desassinatura
 
 Templates de componentes
   https://primeng.org/installation
+
+Libs
+  ngx-cookie-service
+
+Graficos
+  https://primeng.org/chart
+    npm install chart.js --save
+
+    "scripts": [
+        "../node_modules/chart.js/dist/chart.js",
+        //..others
+    ],
