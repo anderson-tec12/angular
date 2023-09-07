@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
@@ -26,7 +27,8 @@ export class HomeComponent {
   constructor(
     private formBuilder:FormBuilder,
     private userService: UserService,
-    private cookiesService: CookieService
+    private cookiesService: CookieService,
+    private messageService:MessageService
   ){}
 
 
@@ -41,9 +43,24 @@ export class HomeComponent {
             this.cookiesService.set('USER_INFO', res.token)
 
             this.loginForm.reset()
+
+            this.messageService.add({
+              severity:'success',
+              summary:'Sucesso',
+              detail:`Seja bem vindo ${res.name}`,
+              life:2000
+            })
           }
         },
-        error: (err) => console.log(err)
+        error: (err) => {
+          console.log(err)
+          this.messageService.add({
+            severity:'error',
+            summary:'Erro',
+            detail:`Erro ao fazer login`,
+            life:2000
+          })
+        }
       })
 
     }
@@ -58,12 +75,27 @@ export class HomeComponent {
       .subscribe({
         next:(res) => {
           if(res){
-            alert('Usuario criado com sucesso')
+            // alert('')
             this.signupForm.reset()
             this.loginCard = true
+
+            this.messageService.add({
+              severity:'success',
+              summary:'Sucesso',
+              detail:`Usuario criado com sucesso`,
+              life:2000
+            })
           }
         },
-        error:(err) => console.log(err)
+        error:(err) => {
+          this.messageService.add({
+            severity:'error',
+            summary:'Erro',
+            detail:`Erro ao criar usuario`,
+            life:2000
+          })
+          console.log(err)
+        }
       })
     }
   }
