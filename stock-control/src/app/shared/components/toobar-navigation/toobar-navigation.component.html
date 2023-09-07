@@ -41,4 +41,17 @@
     >
     </p-button>
   </div>
+
+  <div class="p-toolbar-group-end">
+    <p-button
+      label="Sair"
+      icon="pi pi-sign-out"
+      routerLink="/products"
+      styleClass="p-button-danger"
+      routerLinkActive="exact_route"
+      class="mr-2"
+      (onClick)="this.handle__logOut()"
+    >
+    </p-button>
+  </div>
 </p-toolbar>
