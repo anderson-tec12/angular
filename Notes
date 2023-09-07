@@ -34,3 +34,12 @@ Templates de componentes
 
 Libs
   ngx-cookie-service
+
+Graficos
+  https://primeng.org/chart
+    npm install chart.js --save
+
+    "scripts": [
+        "../node_modules/chart.js/dist/chart.js",
+        //..others
+    ],

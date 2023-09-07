@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthUserRequest } from 'src/app/model/interfaces/user/AuthUserRequest';
 import { SignUpUserRequest } from 'src/app/model/interfaces/user/SignUpUserRequest';
 import { UserService } from 'src/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,8 @@ export class HomeComponent {
     private formBuilder:FormBuilder,
     private userService: UserService,
     private cookiesService: CookieService,
-    private messageService:MessageService
+    private messageService:MessageService,
+    private router:Router
   ){}
 
 
@@ -50,6 +52,8 @@ export class HomeComponent {
               detail:`Seja bem vindo ${res.name}`,
               life:2000
             })
+
+            this.router.navigate(['/dashboard'])
           }
         },
         error: (err) => {

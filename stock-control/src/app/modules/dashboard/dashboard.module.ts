@@ -13,6 +13,7 @@ import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
 import { CookieService } from 'ngx-cookie-service';
 import { MessageService } from 'primeng/api';
+import { ChartModule } from 'primeng/chart';
 
 
 
@@ -31,7 +32,8 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
     ToolbarModule,
     CardModule,
-    ToastModule
+    ToastModule,
+    ChartModule
   ],
   providers: [CookieService, MessageService],
 })
