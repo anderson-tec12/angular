@@ -1,1 +1,18 @@
-<p>wheater-home works!</p>
+<div class="search">
+  <form #form="ngForm" (submit)="this.onSubmit()">
+    <input
+      type="text"
+      placeholder="Cidade"
+      name="city"
+      [(ngModel)]="this.initialCityName">
+
+    <span (click)="this.onSubmit">
+      <fa-icon
+        animation="fade"
+        style="--fa-animation-duration: 5s; cursor: pointer"
+        size="lg"
+        class="search-icon"
+        [icon]="searchIcon"></fa-icon>
+    </span>
+  </form>
+</div>
