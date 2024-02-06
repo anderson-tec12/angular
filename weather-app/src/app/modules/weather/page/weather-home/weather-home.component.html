@@ -6,7 +6,7 @@
       name="city"
       [(ngModel)]="this.initialCityName">
 
-    <span (click)="this.onSubmit">
+    <span (click)="this.onSubmit()">
       <fa-icon
         animation="fade"
         style="--fa-animation-duration: 5s; cursor: pointer"
@@ -16,3 +16,8 @@
     </span>
   </form>
 </div>
+
+<app-weather-card
+  *ngIf="this.weatherDatas"
+  [weatherDatas]="this.weatherDatas"
+/>
