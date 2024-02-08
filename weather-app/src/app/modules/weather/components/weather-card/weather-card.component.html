@@ -7,7 +7,7 @@
     <div class="weather-data">
       <div class="location">{{this.weatherDatas.name}}</div>
       <div class="temperature">
-          {{this.weatherDatas.main.temp | number: "1.0-0" }}º
+          {{this.weatherDatas.main.temp | number: "1.0-0" }}ºC
       </div>
     </div>
   </div>
@@ -15,6 +15,7 @@
   <div class="lower-data">
     <div class="more-info-label">Main informações</div>
     <div class="more-info-container">
+
       <div class="info-block">
         <div class="info-block-label">
           <fa-icon size="lg" [icon]="this.minTemperatureIcon" />
@@ -22,7 +23,40 @@
         </div>
 
         <div class="info-block-value">
-          {{this.weatherDatas.main.temp_min}}
+          {{this.weatherDatas.main.temp_min | number: "1.0-0"}} ºC
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="this.maxTemperatureIcon" />
+          <span>Maxima</span>
+        </div>
+
+        <div class="info-block-value">
+          {{this.weatherDatas.main.temp_max| number: "1.0-0"}} ºC
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="this.humidityIcon" />
+          <span>Humidade</span>
+        </div>
+
+        <div class="info-block-value">
+          {{this.weatherDatas.main.humidity}} %
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="this.windIcon" />
+          <span>Vento</span>
+        </div>
+
+        <div class="info-block-value">
+          {{this.weatherDatas.wind.speed}} km/h
         </div>
       </div>
     </div>
