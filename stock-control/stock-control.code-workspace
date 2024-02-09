@@ -1,9 +1,15 @@
 {
 	"folders": [
 		{
+			"name": "stock-control",
 			"path": "."
 		},
 		{
+			"name": "stock-control-api",
+			"path": "../stock-control-api"
+		},
+		{
+			"name": "notes",
 			"path": "../../notes"
 		}
 	],
