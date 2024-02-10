@@ -28,4 +28,11 @@
       color: #3B82F6 !important;
     }
   }
+
+  button{
+    transition: all 0.2 linear;
+    &:hover{
+      filter: brightness(0.9);
+    }
+  }
 }
