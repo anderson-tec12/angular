@@ -13,3 +13,19 @@
     background-position: top;
   }
 }
+
+.col-12{
+ & > .flex {
+    align-items: center;
+    height: 100vh;
+  }
+
+  span{
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover{
+      color: #3B82F6 !important;
+    }
+  }
+}

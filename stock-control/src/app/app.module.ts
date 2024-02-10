@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {CardModule} from 'primeng/card';
 import {ToastModule} from 'primeng/toast'
 import {InputTextModule} from 'primeng/inputtext'
+import {ButtonModule} from 'primeng/button'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/home.component';
@@ -26,6 +27,7 @@ import { HomeComponent } from './modules/home/home.component';
 
     CardModule,
     InputTextModule,
+    ButtonModule,
     ToastModule
   ],
   providers: [],
