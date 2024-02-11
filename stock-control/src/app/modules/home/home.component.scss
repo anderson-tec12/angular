@@ -3,7 +3,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vmin;
+  height: 102vh;
   overflow: hidden;
 }
 
@@ -16,7 +16,7 @@
 
 .col-12{
  & > .flex {
-    align-items: center;
+    // align-items: center;
     height: 100vh;
   }
 
