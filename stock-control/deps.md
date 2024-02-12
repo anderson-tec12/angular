@@ -8,3 +8,5 @@ styles em andular.json
   "node_modules/primeng/resources/primeng.min.css",
   "node_modules/primeicons/primeicons.css",
   "node_modules/primeflex/primeflex.css"
+
+npm install ngx-cookie-service@15 --save

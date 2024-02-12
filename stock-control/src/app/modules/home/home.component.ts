@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,10 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+  //ReactiveFormModule
+  constructor(private formBuilder:FormBuilder, private userService: UserService){}
+
   loginCard = true
 
 
@@ -30,13 +35,29 @@ export class HomeComponent {
   onSubmitLoginForm(event:SubmitEvent):void{
     console.log(event)
     console.log(this.loginForm.value)
+
+
   }
 
   onSubmitCreateUserForm(event:SubmitEvent):void{
     console.log(event)
     console.log(this.createUserForm.value)
+
+    if(this.createUserForm.value && this.createUserForm.valid){
+      this.userService.signupUser({
+        email:this.createUserForm.value.mail!,
+        name: this.createUserForm.value.name!,
+        password: this.createUserForm.value.pass!
+      }).subscribe({
+        next:(data) => {
+          console.log({data})
+        },
+        error: (err) => {
+          console.log({err})
+        }
+      })
+    }
   }
 
-  //ReactiveFormModule
-  constructor(private formBuilder:FormBuilder){}
+
 }
