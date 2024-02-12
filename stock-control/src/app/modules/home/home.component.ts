@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { MessageService } from 'primeng/api';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class HomeComponent {
   constructor(
     private formBuilder:FormBuilder,
     private userService: UserService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private messageService: MessageService
   ){}
 
   loginCard = true
@@ -51,9 +53,23 @@ export class HomeComponent {
           this.cookieService.set('USER_INFO', response.token)
 
           this.loginForm.reset()
+
+          this.messageService.add({
+            severity:'success',
+            summary:'Sucesso',
+            detail:`Bem vindo ${response.email}`,
+            life: 2000
+          })
         },
         error:(err)=> {
           console.log({err})
+
+          this.messageService.add({
+            severity:'error',
+            summary:'Erro',
+            detail:`Verifique o email e senha`,
+            life: 2000
+          })
         }
       })
     }
@@ -82,9 +98,23 @@ export class HomeComponent {
 
           this.handler.toggleForm(true)
           this.createUserForm.reset()
+
+          this.messageService.add({
+            severity:'success',
+            summary:'Sucesso',
+            detail:`Usuario criado com sucesso`,
+            life: 2000
+          })
         },
         error: (err) => {
           console.log({err})
+
+          this.messageService.add({
+            severity:'error',
+            summary:'Error',
+            detail:`Erro ao criar o usuario`,
+            life: 2000
+          })
         }
       })
     }
