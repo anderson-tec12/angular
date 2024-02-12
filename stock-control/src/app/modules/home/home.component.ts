@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -10,7 +11,11 @@ import { UserService } from 'src/app/services/user/user.service';
 export class HomeComponent {
 
   //ReactiveFormModule
-  constructor(private formBuilder:FormBuilder, private userService: UserService){}
+  constructor(
+    private formBuilder:FormBuilder,
+    private userService: UserService,
+    private cookieService: CookieService
+  ){}
 
   loginCard = true
 
@@ -36,6 +41,22 @@ export class HomeComponent {
     console.log(event)
     console.log(this.loginForm.value)
 
+    if(this.loginForm.value && this.loginForm.valid ){
+      this.userService.authUser({
+        email:  this.loginForm.value.mail!,
+        password: this.loginForm.value.pass!,
+      }).subscribe({
+        next:(response) => {
+          console.log({response})
+          this.cookieService.set('USER_INFO', response.token)
+
+          this.loginForm.reset()
+        },
+        error:(err)=> {
+          console.log({err})
+        }
+      })
+    }
 
   }
 
@@ -51,6 +72,16 @@ export class HomeComponent {
       }).subscribe({
         next:(data) => {
           console.log({data})
+
+          // this.createUserForm.reset()
+
+          this.loginForm.setValue({
+            mail:this.createUserForm.value.mail!,
+            pass:''
+          })
+
+          this.handler.toggleForm(true)
+          this.createUserForm.reset()
         },
         error: (err) => {
           console.log({err})
