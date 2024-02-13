@@ -1,4 +1,6 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toobar-navigation',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./toobar-navigation.component.scss']
 })
 export class ToobarNavigationComponent {
+  constructor(
+    private cookieService:CookieService,
+    private router:Router
+  ){}
 
+  signOut(){
+    this.cookieService.delete('USER_INFO')
+    this.router.navigate(['/home'])
+  }
 }
