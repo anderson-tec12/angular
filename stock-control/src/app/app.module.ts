@@ -9,6 +9,7 @@ import {CardModule} from 'primeng/card';
 import {ToastModule} from 'primeng/toast'
 import {InputTextModule} from 'primeng/inputtext'
 import {ButtonModule} from 'primeng/button'
+import {ChartModule} from 'primeng/chart'
 
 import {CookieService} from 'ngx-cookie-service'
 
@@ -31,7 +32,8 @@ import { MessageService } from 'primeng/api';
     CardModule,
     InputTextModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    ChartModule
   ],
   providers: [CookieService, MessageService],
   bootstrap: [AppComponent]
