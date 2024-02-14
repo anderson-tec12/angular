@@ -13,7 +13,7 @@ export class ToobarNavigationComponent {
     private router:Router
   ){}
 
-  signOut(){
+  signOut():void{
     this.cookieService.delete('USER_INFO')
     this.router.navigate(['/home'])
   }
