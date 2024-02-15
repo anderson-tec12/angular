@@ -1,1 +1,10 @@
 <app-toobar-navigation />
+
+<div class="grid">
+  <div class="col-12">
+    <!-- Grafico de produtos -->
+    <p-card header="Quantidade de produtos em estoque" styleClass="shadow-3 m-5 text-indigo-800">
+      <p-chart type="bar" [data]="this.productChartDatas" [options]="this.productsChartOptions"/>
+    </p-card>
+  </div>
+</div>
