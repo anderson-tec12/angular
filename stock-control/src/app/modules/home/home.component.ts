@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { MessageService } from 'primeng/api';
+import { take } from 'rxjs';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -49,7 +50,7 @@ export class HomeComponent {
       this.userService.authUser({
         email:  this.loginForm.value.mail!,
         password: this.loginForm.value.pass!,
-      }).subscribe({
+      }).pipe(take(1)).subscribe({
         next:(response) => {
           console.log({response})
           this.cookieService.set('USER_INFO', response.token)
@@ -89,7 +90,7 @@ export class HomeComponent {
         email:this.createUserForm.value.mail!,
         name: this.createUserForm.value.name!,
         password: this.createUserForm.value.pass!
-      }).subscribe({
+      }).pipe(take(1)).subscribe({
         next:(data) => {
           console.log({data})
 
