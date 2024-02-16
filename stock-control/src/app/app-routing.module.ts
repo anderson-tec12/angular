@@ -19,6 +19,12 @@ const routes: Routes = [
     canActivate:[AuthGuardService],
     // component:DashboardHomeComponent
     loadChildren:() => import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule)
+  },
+  {
+    path:'products',
+    canActivate:[AuthGuardService],
+    // component:DashboardHomeComponent
+    loadChildren:() => import('./modules/products/products.module').then((m) => m.ProductsModule)
   }
 ];
 
