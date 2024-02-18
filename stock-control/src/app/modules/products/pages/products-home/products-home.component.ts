@@ -30,15 +30,12 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
   getServiceProductsData() {
     const productsLoaded = this.productsDataTransferService.getProductsDatas()
 
-    console.log({productsLoaded})
-
     if(productsLoaded.length > 0){
       this.productsDatas = productsLoaded
     }else{
       this.getAPIProductsDatas()
     }
 
-    console.log('DADOS', this.productsDatas)
   }
 
   getAPIProductsDatas() {

@@ -23,10 +23,12 @@ import { CookieService } from 'ngx-cookie-service';
 import { ProductsHomeComponent } from './pages/products-home/products-home.component';
 import { RouterModule } from '@angular/router';
 import { PRODUCTS_ROUTES } from './products.routing.module';
+import { ProductsTableComponent } from './components/products-table/products-table.component';
 
 @NgModule({
   declarations: [
-    ProductsHomeComponent
+    ProductsHomeComponent,
+    ProductsTableComponent
   ],
   imports: [
     CommonModule,
