@@ -6,6 +6,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { IGetAllProductsResponse } from 'src/app/models/interfaces/products/IGetAllProductsResponse';
 import { MessageService } from 'primeng/api';
+import { EventInterfaceProduct } from 'src/app/models/interfaces/products/events';
 
 @Component({
   templateUrl: './products-home.component.html',
@@ -56,6 +57,10 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
 
         }
       })
+  }
+
+  handleProductionAction(event:EventInterfaceProduct){
+    console.log('Event', {event})
   }
 
   ngOnDestroy(): void {

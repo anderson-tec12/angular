@@ -18,7 +18,7 @@
         [(selection)]="this.productSelected"
         [rowHover]="true"
         dataKey="id"
-        currentPageReportTemplate="MOstrando {first} de {last} de {totalRecords} produtos"
+        currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} produtos"
         [showCurrentPageReport]="true"
       >
         <ng-template pTemplate="header">
@@ -131,6 +131,7 @@
                   label="Adicionar"
                   pTooltip="Adicionar produto"
                   tooltipPosition="top"
+                  (onClick)="this.handleProductEvent(this.addProductEvent)"
                 ></p-button>
               </div>
             </th>
@@ -169,6 +170,7 @@
                   class="p-button-rounded p-button-warning"
                   pTooltip="Editar produto"
                   tooltipPosition="top"
+                  (click)="this.handleProductEvent(this.editProductEvent, product.id)"
                  ></button>
 
                  <button
