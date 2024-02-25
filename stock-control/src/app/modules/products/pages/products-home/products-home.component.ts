@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { IGetAllProductsResponse } from 'src/app/models/interfaces/products/IGetAllProductsResponse';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { EventInterfaceProduct } from 'src/app/models/interfaces/products/events';
 import { DeleteProductAction } from 'src/app/models/enums/products/ProductEvents';
 
@@ -21,7 +21,8 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
     private productsService:ProductsService,
     private productsDataTransferService:ProductsDataTransferService,
     private router:Router,
-    private messageService:MessageService
+    private messageService:MessageService,
+    private confirmationService:ConfirmationService
   ){}
 
 
@@ -66,7 +67,38 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
 
   handleDeleteProductAcion(event:DeleteProductAction){
     if(event.product_id && event.product_name){
-      alert('Recebido')
+      this.confirmationService.confirm({
+        message:`Confirma a exclusão do produto ${event.product_name}`,
+        header:'Confirmação de exclusão',
+        icon: 'pi pi-exclamation-triangle',
+        acceptLabel: 'Sim',
+        rejectLabel: 'Não',
+        accept:() => this.deleteProduct(event.product_id)
+      })
+    }
+  }
+
+
+  deleteProduct(productId:string){
+    if(productId){
+      this.productsService
+      .deleteProducts(productId)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next:(response) => {
+          this.messageService.add({
+            severity:'success',
+            summary:'Sucesso',
+            detail:'Produto removido com sucesso!',
+            life: 2500
+          })
+
+          this.getAPIProductsDatas()
+        },
+        error:(err) => {
+          console.log({err})
+        }
+      })
     }
   }
 
