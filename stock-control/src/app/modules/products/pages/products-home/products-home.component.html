@@ -1,3 +1,7 @@
 <app-toobar-navigation />
 
-<app-products-table [products]="this.productsDatas" (productEvent)="this.handleProductionAction($event)"/>
+<app-products-table
+  [products]="this.productsDatas"
+  (productEvent)="this.handleProductionAction($event)"
+  (deleteProductEvent)="this.handleDeleteProductAcion($event)"
+/>

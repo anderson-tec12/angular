@@ -7,6 +7,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 import { IGetAllProductsResponse } from 'src/app/models/interfaces/products/IGetAllProductsResponse';
 import { MessageService } from 'primeng/api';
 import { EventInterfaceProduct } from 'src/app/models/interfaces/products/events';
+import { DeleteProductAction } from 'src/app/models/enums/products/ProductEvents';
 
 @Component({
   templateUrl: './products-home.component.html',
@@ -61,6 +62,12 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
 
   handleProductionAction(event:EventInterfaceProduct){
     console.log('Event', {event})
+  }
+
+  handleDeleteProductAcion(event:DeleteProductAction){
+    if(event.product_id && event.product_name){
+      alert('Recebido')
+    }
   }
 
   ngOnDestroy(): void {

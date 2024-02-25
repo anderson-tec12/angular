@@ -3,3 +3,8 @@ export enum ProductEvent {
   EDIT_PRODUCT_EVENT = "Editar produto",
   SALE_PRODUCT_EVENT = 'Vender produto'
 }
+
+export interface DeleteProductAction{
+  product_id:string;
+  product_name:string
+}
